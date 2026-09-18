@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shatl_mod_loader/client/client.dart';
 import 'package:shatl_mod_loader/overlay/widget/custom_slider.dart';
 import 'package:shatl_mod_loader/overlay/widget/title_switch_expand.dart';
@@ -26,9 +27,10 @@ class NetPacketMaxValue extends StatefulWidget {
 }
 
 class _NetPacketMaxValueState extends State<NetPacketMaxValue> {
+  static final Map<String, bool> mapIsOpenCache = {};
   late double _maxValue;
   late double _currValue;
-  bool _isOpen = false;
+  late bool _isOpen;
 
   @override
   void initState() {
@@ -36,6 +38,13 @@ class _NetPacketMaxValueState extends State<NetPacketMaxValue> {
 
     _maxValue = widget.min;
     _currValue = widget.min;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      _maxValue = await _getValue(_shardTypeString("max"));
+      _currValue = await _getValue(_shardTypeString("val"));
+    });
+
+    _isOpen = mapIsOpenCache[_shardTypeString("bool")] ?? false;
   }
 
   @override
@@ -47,6 +56,7 @@ class _NetPacketMaxValueState extends State<NetPacketMaxValue> {
         if (ok) {
           setState(() {
             _isOpen = value;
+            mapIsOpenCache[_shardTypeString("bool")] = value;
           });
         }
       },
@@ -83,28 +93,23 @@ class _NetPacketMaxValueState extends State<NetPacketMaxValue> {
   Future<bool> _sendPacket(bool isOpen) async {
     final packMsg = packet(
       cmd: pk_cmd.cmd_player_max_value,
-      data: player_max_value(
+      data: REQplayer_max_value(
         type: widget.type,
         isOpen: isOpen,
         value: _currValue.toInt(),
         max: _maxValue.toInt(),
       ).writeToBuffer(),
     );
+    final msg = await TcpManager.sendPacketConfirm(packMsg);
 
-    final requestData = packMsg.writeToBuffer();
-    final responseData = await TcpManager.sendPacket(requestData);
-    final resMsg = packet.fromBuffer(responseData);
-
-    bool ok = false;
-
-    if (resMsg.cmd == pk_cmd.cmd_confirm) {
-      final confirmMsg = confirm.fromBuffer(resMsg.data);
-      ok = confirmMsg.ok;
-    }
-
-    return ok;
+    return msg?.ok ?? false;
   }
 
   String _shardTypeString(String str) =>
       widget.title.toString() + widget.type.toString() + str;
+
+  Future<double> _getValue(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getDouble(key) ?? widget.min;
+  }
 }

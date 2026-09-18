@@ -267,6 +267,33 @@ class TcpManager {
     return result as Uint8List;
   }
 
+  static Future<packet> sendPacketAndParse(packet packMsg) async {
+    final requestData = packMsg.writeToBuffer();
+    final responseData = await TcpManager.sendPacket(requestData);
+    final resMsg = packet.fromBuffer(responseData);
+
+    return resMsg;
+  }
+
+  static Future<confirm?> sendPacketConfirm(packet packMsg) async {
+    final resMsg = await sendPacketAndParse(packMsg);
+
+    if (resMsg.cmd == pk_cmd.cmd_confirm) {
+      final confirmMsg = confirm.fromBuffer(resMsg.data);
+      return confirmMsg;
+    }
+
+    return null;
+  }
+
+  static Future sendPacketT<T>(
+    packet packetMsg,
+    T Function(List<int>) fromBuffer,
+  ) async {
+    final res = await sendPacketConfirm(packetMsg);
+    return fromBuffer(res!.data);
+  }
+
   static SendPort? get port {
     return IsolateNameServer.lookupPortByName(portName);
   }

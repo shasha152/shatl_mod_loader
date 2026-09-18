@@ -15,7 +15,25 @@ class _OpendHeaderState extends State<OpendHeader> {
     return Row(
       children: [
         const Spacer(),
-
+        PopupMenuButton<String>(
+          icon: const Text(
+            '?',
+            style: TextStyle(fontSize: 18, fontWeight: .w400),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          onSelected: (value) {
+            switch (value) {
+              case 'about':
+                showAboutDialog(context: context);
+                break;
+            }
+          },
+          itemBuilder: (context) => const [
+            PopupMenuItem(value: 'about', child: Text('关于')),
+          ],
+        ),
         IconButton(onPressed: widget.onBackTap, icon: Icon(Icons.close)),
       ],
     );

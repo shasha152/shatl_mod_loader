@@ -16,7 +16,7 @@ class PlayerPage extends StatelessWidget {
       ),
       NetPacketMaxValue(
         min: 0,
-        max: 500,
+        max: 400,
         title: "蓝量",
         type: max_value_type.mana,
       ),

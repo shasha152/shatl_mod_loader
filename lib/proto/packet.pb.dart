@@ -102,10 +102,14 @@ class confirm extends $pb.GeneratedMessage {
   factory confirm({
     $core.String? message,
     $core.bool? ok,
+    pk_cmd? cmd,
+    $core.List<$core.int>? data,
   }) {
     final result = create();
     if (message != null) result.message = message;
     if (ok != null) result.ok = ok;
+    if (cmd != null) result.cmd = cmd;
+    if (data != null) result.data = data;
     return result;
   }
 
@@ -124,6 +128,9 @@ class confirm extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'message')
     ..aOB(2, _omitFieldNames ? '' : 'ok')
+    ..aE<pk_cmd>(3, _omitFieldNames ? '' : 'cmd', enumValues: pk_cmd.values)
+    ..a<$core.List<$core.int>>(
+        4, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -161,6 +168,24 @@ class confirm extends $pb.GeneratedMessage {
   $core.bool hasOk() => $_has(1);
   @$pb.TagNumber(2)
   void clearOk() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  pk_cmd get cmd => $_getN(2);
+  @$pb.TagNumber(3)
+  set cmd(pk_cmd value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasCmd() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCmd() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get data => $_getN(3);
+  @$pb.TagNumber(4)
+  set data($core.List<$core.int> value) => $_setBytes(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasData() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearData() => $_clearField(4);
 }
 
 const $core.bool _omitFieldNames =

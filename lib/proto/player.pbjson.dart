@@ -28,21 +28,9 @@ const max_value_type$json = {
 final $typed_data.Uint8List max_value_typeDescriptor =
     $convert.base64Decode('Cg5tYXhfdmFsdWVfdHlwZRIICgRsaWZlEAASCAoEbWFuYRAB');
 
-@$core.Deprecated('Use float_value_typeDescriptor instead')
-const float_value_type$json = {
-  '1': 'float_value_type',
-  '2': [
-    {'1': 'speed', '2': 0},
-  ],
-};
-
-/// Descriptor for `float_value_type`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List float_value_typeDescriptor =
-    $convert.base64Decode('ChBmbG9hdF92YWx1ZV90eXBlEgkKBXNwZWVkEAA=');
-
-@$core.Deprecated('Use player_max_valueDescriptor instead')
-const player_max_value$json = {
-  '1': 'player_max_value',
+@$core.Deprecated('Use rEQplayer_max_valueDescriptor instead')
+const REQplayer_max_value$json = {
+  '1': 'REQplayer_max_value',
   '2': [
     {'1': 'is_open', '3': 1, '4': 1, '5': 8, '10': 'isOpen'},
     {
@@ -58,31 +46,46 @@ const player_max_value$json = {
   ],
 };
 
-/// Descriptor for `player_max_value`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List player_max_valueDescriptor = $convert.base64Decode(
-    'ChBwbGF5ZXJfbWF4X3ZhbHVlEhcKB2lzX29wZW4YASABKAhSBmlzT3BlbhIqCgR0eXBlGAIgAS'
-    'gOMhYudGwucHJvLm1heF92YWx1ZV90eXBlUgR0eXBlEhAKA21heBgDIAEoBVIDbWF4EhQKBXZh'
-    'bHVlGAQgASgFUgV2YWx1ZQ==');
+/// Descriptor for `REQplayer_max_value`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rEQplayer_max_valueDescriptor = $convert.base64Decode(
+    'ChNSRVFwbGF5ZXJfbWF4X3ZhbHVlEhcKB2lzX29wZW4YASABKAhSBmlzT3BlbhIqCgR0eXBlGA'
+    'IgASgOMhYudGwucHJvLm1heF92YWx1ZV90eXBlUgR0eXBlEhAKA21heBgDIAEoBVIDbWF4EhQK'
+    'BXZhbHVlGAQgASgFUgV2YWx1ZQ==');
 
-@$core.Deprecated('Use player_float_valueDescriptor instead')
-const player_float_value$json = {
-  '1': 'player_float_value',
+@$core.Deprecated('Use rEQplayer_get_bagDescriptor instead')
+const REQplayer_get_bag$json = {
+  '1': 'REQplayer_get_bag',
   '2': [
-    {'1': 'is_open', '3': 1, '4': 1, '5': 8, '10': 'isOpen'},
     {
-      '1': 'type',
-      '3': 2,
+      '1': 'player_index',
+      '3': 1,
       '4': 1,
-      '5': 14,
-      '6': '.tl.pro.float_value_type',
-      '10': 'type'
+      '5': 5,
+      '9': 0,
+      '10': 'playerIndex',
+      '17': true
     },
-    {'1': 'value', '3': 3, '4': 1, '5': 2, '10': 'value'},
+    {'1': 'me', '3': 2, '4': 1, '5': 8, '10': 'me'},
+  ],
+  '8': [
+    {'1': '_player_index'},
   ],
 };
 
-/// Descriptor for `player_float_value`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List player_float_valueDescriptor = $convert.base64Decode(
-    'ChJwbGF5ZXJfZmxvYXRfdmFsdWUSFwoHaXNfb3BlbhgBIAEoCFIGaXNPcGVuEiwKBHR5cGUYAi'
-    'ABKA4yGC50bC5wcm8uZmxvYXRfdmFsdWVfdHlwZVIEdHlwZRIUCgV2YWx1ZRgDIAEoAlIFdmFs'
-    'dWU=');
+/// Descriptor for `REQplayer_get_bag`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rEQplayer_get_bagDescriptor = $convert.base64Decode(
+    'ChFSRVFwbGF5ZXJfZ2V0X2JhZxImCgxwbGF5ZXJfaW5kZXgYASABKAVIAFILcGxheWVySW5kZX'
+    'iIAQESDgoCbWUYAiABKAhSAm1lQg8KDV9wbGF5ZXJfaW5kZXg=');
+
+@$core.Deprecated('Use rESplayer_get_bagDescriptor instead')
+const RESplayer_get_bag$json = {
+  '1': 'RESplayer_get_bag',
+  '2': [
+    {'1': 'items', '3': 1, '4': 3, '5': 11, '6': '.tl.pro.item', '10': 'items'},
+  ],
+};
+
+/// Descriptor for `RESplayer_get_bag`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rESplayer_get_bagDescriptor = $convert.base64Decode(
+    'ChFSRVNwbGF5ZXJfZ2V0X2JhZxIiCgVpdGVtcxgBIAMoCzIMLnRsLnByby5pdGVtUgVpdGVtcw'
+    '==');

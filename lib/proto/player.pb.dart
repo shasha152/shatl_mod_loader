@@ -14,14 +14,15 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'item.pb.dart' as $0;
 import 'player.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'player.pbenum.dart';
 
-class player_max_value extends $pb.GeneratedMessage {
-  factory player_max_value({
+class REQplayer_max_value extends $pb.GeneratedMessage {
+  factory REQplayer_max_value({
     $core.bool? isOpen,
     max_value_type? type,
     $core.int? max,
@@ -35,17 +36,17 @@ class player_max_value extends $pb.GeneratedMessage {
     return result;
   }
 
-  player_max_value._();
+  REQplayer_max_value._();
 
-  factory player_max_value.fromBuffer($core.List<$core.int> data,
+  factory REQplayer_max_value.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory player_max_value.fromJson($core.String json,
+  factory REQplayer_max_value.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'player_max_value',
+      _omitMessageNames ? '' : 'REQplayer_max_value',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'tl.pro'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'isOpen')
@@ -56,23 +57,23 @@ class player_max_value extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  player_max_value clone() => deepCopy();
+  REQplayer_max_value clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  player_max_value copyWith(void Function(player_max_value) updates) =>
-      super.copyWith((message) => updates(message as player_max_value))
-          as player_max_value;
+  REQplayer_max_value copyWith(void Function(REQplayer_max_value) updates) =>
+      super.copyWith((message) => updates(message as REQplayer_max_value))
+          as REQplayer_max_value;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static player_max_value create() => player_max_value._();
+  static REQplayer_max_value create() => REQplayer_max_value._();
   @$core.override
-  player_max_value createEmptyInstance() => create();
+  REQplayer_max_value createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static player_max_value getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<player_max_value>(create);
-  static player_max_value? _defaultInstance;
+  static REQplayer_max_value getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<REQplayer_max_value>(create);
+  static REQplayer_max_value? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get isOpen => $_getBF(0);
@@ -111,83 +112,119 @@ class player_max_value extends $pb.GeneratedMessage {
   void clearValue() => $_clearField(4);
 }
 
-class player_float_value extends $pb.GeneratedMessage {
-  factory player_float_value({
-    $core.bool? isOpen,
-    float_value_type? type,
-    $core.double? value,
+class REQplayer_get_bag extends $pb.GeneratedMessage {
+  factory REQplayer_get_bag({
+    $core.int? playerIndex,
+    $core.bool? me,
   }) {
     final result = create();
-    if (isOpen != null) result.isOpen = isOpen;
-    if (type != null) result.type = type;
-    if (value != null) result.value = value;
+    if (playerIndex != null) result.playerIndex = playerIndex;
+    if (me != null) result.me = me;
     return result;
   }
 
-  player_float_value._();
+  REQplayer_get_bag._();
 
-  factory player_float_value.fromBuffer($core.List<$core.int> data,
+  factory REQplayer_get_bag.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory player_float_value.fromJson($core.String json,
+  factory REQplayer_get_bag.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'player_float_value',
+      _omitMessageNames ? '' : 'REQplayer_get_bag',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'tl.pro'),
       createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'isOpen')
-    ..aE<float_value_type>(2, _omitFieldNames ? '' : 'type',
-        enumValues: float_value_type.values)
-    ..aD(3, _omitFieldNames ? '' : 'value', fieldType: $pb.PbFieldType.OF)
+    ..aI(1, _omitFieldNames ? '' : 'playerIndex')
+    ..aOB(2, _omitFieldNames ? '' : 'me')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  player_float_value clone() => deepCopy();
+  REQplayer_get_bag clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  player_float_value copyWith(void Function(player_float_value) updates) =>
-      super.copyWith((message) => updates(message as player_float_value))
-          as player_float_value;
+  REQplayer_get_bag copyWith(void Function(REQplayer_get_bag) updates) =>
+      super.copyWith((message) => updates(message as REQplayer_get_bag))
+          as REQplayer_get_bag;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static player_float_value create() => player_float_value._();
+  static REQplayer_get_bag create() => REQplayer_get_bag._();
   @$core.override
-  player_float_value createEmptyInstance() => create();
+  REQplayer_get_bag createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static player_float_value getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<player_float_value>(create);
-  static player_float_value? _defaultInstance;
+  static REQplayer_get_bag getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<REQplayer_get_bag>(create);
+  static REQplayer_get_bag? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get isOpen => $_getBF(0);
+  $core.int get playerIndex => $_getIZ(0);
   @$pb.TagNumber(1)
-  set isOpen($core.bool value) => $_setBool(0, value);
+  set playerIndex($core.int value) => $_setSignedInt32(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasIsOpen() => $_has(0);
+  $core.bool hasPlayerIndex() => $_has(0);
   @$pb.TagNumber(1)
-  void clearIsOpen() => $_clearField(1);
+  void clearPlayerIndex() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  float_value_type get type => $_getN(1);
+  $core.bool get me => $_getBF(1);
   @$pb.TagNumber(2)
-  set type(float_value_type value) => $_setField(2, value);
+  set me($core.bool value) => $_setBool(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasType() => $_has(1);
+  $core.bool hasMe() => $_has(1);
   @$pb.TagNumber(2)
-  void clearType() => $_clearField(2);
+  void clearMe() => $_clearField(2);
+}
 
-  @$pb.TagNumber(3)
-  $core.double get value => $_getN(2);
-  @$pb.TagNumber(3)
-  set value($core.double value) => $_setFloat(2, value);
-  @$pb.TagNumber(3)
-  $core.bool hasValue() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearValue() => $_clearField(3);
+class RESplayer_get_bag extends $pb.GeneratedMessage {
+  factory RESplayer_get_bag({
+    $core.Iterable<$0.item>? items,
+  }) {
+    final result = create();
+    if (items != null) result.items.addAll(items);
+    return result;
+  }
+
+  RESplayer_get_bag._();
+
+  factory RESplayer_get_bag.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RESplayer_get_bag.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RESplayer_get_bag',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'tl.pro'),
+      createEmptyInstance: create)
+    ..pPM<$0.item>(1, _omitFieldNames ? '' : 'items',
+        subBuilder: $0.item.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RESplayer_get_bag clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RESplayer_get_bag copyWith(void Function(RESplayer_get_bag) updates) =>
+      super.copyWith((message) => updates(message as RESplayer_get_bag))
+          as RESplayer_get_bag;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RESplayer_get_bag create() => RESplayer_get_bag._();
+  @$core.override
+  RESplayer_get_bag createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RESplayer_get_bag getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RESplayer_get_bag>(create);
+  static RESplayer_get_bag? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $pb.PbList<$0.item> get items => $_getList(0);
 }
 
 const $core.bool _omitFieldNames =

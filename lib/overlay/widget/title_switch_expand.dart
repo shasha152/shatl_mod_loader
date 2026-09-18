@@ -58,7 +58,6 @@ class _TitleSwitchExpandState extends State<TitleSwitchExpand> {
           ),
         ),
 
-        // 下拉内容
         AnimatedSize(
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,

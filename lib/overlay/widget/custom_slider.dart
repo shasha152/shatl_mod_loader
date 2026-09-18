@@ -35,21 +35,21 @@ class CustomSlider extends StatefulWidget {
 }
 
 class _CustomSliderState extends State<CustomSlider> {
-  late double currnetValue;
+  late double currValue;
 
   @override
   void initState() {
     super.initState();
 
-    currnetValue = widget.min;
+    currValue = widget.min;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (widget.saveKey != null) {
         final prefs = await SharedPreferences.getInstance();
         setState(() {
-          currnetValue = widget.formatValue(
+          currValue = widget.formatValue(
             prefs.getDouble(widget.saveKey!) ?? widget.min,
           );
-          widget.onChangeEnd(currnetValue);
+          widget.onChangeEnd(currValue);
         });
       }
     });
@@ -65,10 +65,10 @@ class _CustomSliderState extends State<CustomSlider> {
           child: Slider(
             min: widget.min,
             max: widget.max,
-            value: currnetValue,
+            value: currValue,
             onChanged: (value) {
               setState(() {
-                currnetValue = widget.formatValue(value);
+                currValue = widget.formatValue(value);
               });
             },
             onChangeEnd: (value) async {
@@ -81,7 +81,7 @@ class _CustomSliderState extends State<CustomSlider> {
             },
           ),
         ),
-        Text(currnetValue.toString()),
+        Text(currValue.toString()),
       ],
     );
   }

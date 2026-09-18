@@ -33,21 +33,5 @@ class max_value_type extends $pb.ProtobufEnum {
   const max_value_type._(super.value, super.name);
 }
 
-class float_value_type extends $pb.ProtobufEnum {
-  static const float_value_type speed =
-      float_value_type._(0, _omitEnumNames ? '' : 'speed');
-
-  static const $core.List<float_value_type> values = <float_value_type>[
-    speed,
-  ];
-
-  static final $core.List<float_value_type?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 0);
-  static float_value_type? valueOf($core.int value) =>
-      value < 0 || value >= _byValue.length ? null : _byValue[value];
-
-  const float_value_type._(super.value, super.name);
-}
-
 const $core.bool _omitEnumNames =
     $core.bool.fromEnvironment('protobuf.omit_enum_names');

@@ -3,6 +3,7 @@ import 'package:flutter_floatwing/flutter_floatwing.dart';
 import 'package:shatl_mod_loader/overlay/opend/Sider.dart';
 import 'package:shatl_mod_loader/overlay/opend/header.dart';
 import 'package:shatl_mod_loader/overlay/opend/sider_item.dart';
+import 'package:shatl_mod_loader/overlay/page/bag.dart';
 import 'package:shatl_mod_loader/overlay/page/player.dart';
 import 'package:shatl_mod_loader/overlay/page/world.dart';
 import 'package:shatl_mod_loader/overlay/window_manager.dart';
@@ -15,9 +16,9 @@ class OpendOverlay extends StatefulWidget {
 }
 
 class _OpendOverlayState extends State<OpendOverlay> {
-  static const pages = [PlayerPage(), WorldPage()];
+  static const pages = [PlayerPage(), WorldPage(), PlayerBagPage()];
 
-  int currnetPageIndex = 0;
+  int currPageIndex = 0;
   late Window? w;
 
   @override
@@ -34,12 +35,13 @@ class _OpendOverlayState extends State<OpendOverlay> {
           OpendSider(
             onChanged: (index) {
               setState(() {
-                currnetPageIndex = index;
+                currPageIndex = index;
               });
             },
             items: [
               _buildSiderItem("images/icons/player.png"),
               _buildSiderItem("images/icons/world.png"),
+              _buildSiderItem("images/icons/bag.png"),
             ],
           ),
           VerticalDivider(width: 1),
@@ -57,7 +59,7 @@ class _OpendOverlayState extends State<OpendOverlay> {
                 Expanded(
                   child: AnimatedSwitcher(
                     duration: Duration(milliseconds: 250),
-                    child: pages[currnetPageIndex],
+                    child: pages[currPageIndex],
                   ),
                 ),
               ],

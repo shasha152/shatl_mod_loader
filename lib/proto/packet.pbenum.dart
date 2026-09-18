@@ -24,6 +24,10 @@ class pk_cmd extends $pb.ProtobufEnum {
       pk_cmd._(1000, _omitEnumNames ? '' : 'cmd_player_max_value');
   static const pk_cmd cmd_player_float_value =
       pk_cmd._(1001, _omitEnumNames ? '' : 'cmd_player_float_value');
+  static const pk_cmd cmd_player_bool_value =
+      pk_cmd._(1002, _omitEnumNames ? '' : 'cmd_player_bool_value');
+  static const pk_cmd cmd_player_get_bag =
+      pk_cmd._(1100, _omitEnumNames ? '' : 'cmd_player_get_bag');
 
   static const $core.List<pk_cmd> values = <pk_cmd>[
     none,
@@ -31,6 +35,8 @@ class pk_cmd extends $pb.ProtobufEnum {
     cmd_verify,
     cmd_player_max_value,
     cmd_player_float_value,
+    cmd_player_bool_value,
+    cmd_player_get_bag,
   ];
 
   static final $core.Map<$core.int, pk_cmd> _byValue =

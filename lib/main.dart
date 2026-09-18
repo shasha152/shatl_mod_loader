@@ -16,13 +16,12 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-void showOverlay(InterSize size) {
+void showOverlay(IntegerSize size) {
   WindowManager.createWindow(
     route: "overlay.closed",
     id: "closed_window",
     width: 600,
     height: 100,
-    // x: (size.width / 2).toInt() - 300,
     y: 70,
     draggable: false,
   );
@@ -44,8 +43,8 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class InterSize {
-  InterSize(this.width, this.height);
+class IntegerSize {
+  IntegerSize(this.width, this.height);
 
   final int width;
   final int height;
@@ -78,12 +77,12 @@ class _MyAppState extends State<MyApp> {
 
             return OrientationBuilder(
               builder: (context, orientation) {
-                var size = InterSize(
+                var size = IntegerSize(
                   snapshot.data!.availableWidth,
                   snapshot.data!.availableHeight,
                 );
                 if (size.width > size.height) {
-                  size = InterSize(size.height, size.width);
+                  size = IntegerSize(size.height, size.width);
                 }
 
                 // _updateWindowsConfig(size);
