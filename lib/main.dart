@@ -3,37 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_floatwing/flutter_floatwing.dart';
 import 'package:shatl_mod_loader/client/client.dart';
+import 'package:shatl_mod_loader/main/page/home.dart';
+import 'package:shatl_mod_loader/main/page/setting.dart';
 import 'package:shatl_mod_loader/overlay/closed_overlay.dart';
-import 'package:shatl_mod_loader/overlay/opend_overlay.dart';
-import 'package:shatl_mod_loader/overlay/window_manager.dart';
-import 'package:shatl_mod_loader/platform/screen_info.dart';
+import 'package:shatl_mod_loader/overlay/expanded_overlay.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await TcpManager.start();
-
   runApp(const MyApp());
-}
-
-void showOverlay(IntegerSize size) {
-  WindowManager.createWindow(
-    route: "overlay.closed",
-    id: "closed_window",
-    width: 600,
-    height: 100,
-    y: 70,
-    draggable: false,
-  );
-  WindowManager.createWindow(
-    route: "overlay.opened",
-    id: "opend_window",
-    width: (size.height / 1.5).toInt(),
-    height: size.width - 20,
-    isShow: false,
-    y: 50,
-    draggable: false,
-  );
 }
 
 class MyApp extends StatefulWidget {
@@ -43,60 +22,42 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class IntegerSize {
-  IntegerSize(this.width, this.height);
-
-  final int width;
-  final int height;
-}
-
 class _MyAppState extends State<MyApp> {
-  late Future<ScreenInfo> screenInfo;
-
-  @override
-  void initState() {
-    super.initState();
-    WindowManager.initPlugin();
-    screenInfo = ScreenInfoProvider.getAndroidScreenInfo();
-  }
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
         "overlay.closed": (context) => ClosedOverlay().floatwing(),
-        "overlay.opened": (context) => OpendOverlay().floatwing(),
+        "overlay.opened": (context) => ExpandedOverlay().floatwing(),
       },
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(),
-        body: FutureBuilder(
-          future: screenInfo,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Center();
-
-            return OrientationBuilder(
-              builder: (context, orientation) {
-                var size = IntegerSize(
-                  snapshot.data!.availableWidth,
-                  snapshot.data!.availableHeight,
-                );
-                if (size.width > size.height) {
-                  size = IntegerSize(size.height, size.width);
-                }
-
-                // _updateWindowsConfig(size);
-                return Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      showOverlay(size);
-                    },
-                    child: Text("启动悬浮窗"),
-                  ),
-                );
-              },
-            );
+        body: IndexedStack(
+          index: _currentIndex,
+          children: [HomePage(), SettingPage()],
+        ),
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
           },
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home),
+              label: '主页',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.settings_outlined),
+              selectedIcon: Icon(Icons.settings),
+              label: '设置',
+            ),
+          ],
         ),
       ),
     );

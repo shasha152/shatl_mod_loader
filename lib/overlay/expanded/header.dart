@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class OpendHeader extends StatefulWidget {
-  const OpendHeader({super.key, required this.onBackTap});
+class ExpandedHeader extends StatefulWidget {
+  const ExpandedHeader({super.key, required this.onBackTap});
 
   final void Function() onBackTap;
 
   @override
-  State<OpendHeader> createState() => _OpendHeaderState();
+  State<ExpandedHeader> createState() => _ExpandedHeaderState();
 }
 
-class _OpendHeaderState extends State<OpendHeader> {
+class _ExpandedHeaderState extends State<ExpandedHeader> {
   @override
   Widget build(BuildContext context) {
     return Row(

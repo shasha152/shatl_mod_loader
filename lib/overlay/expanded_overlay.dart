@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_floatwing/flutter_floatwing.dart';
-import 'package:shatl_mod_loader/overlay/opend/Sider.dart';
-import 'package:shatl_mod_loader/overlay/opend/header.dart';
-import 'package:shatl_mod_loader/overlay/opend/sider_item.dart';
+import 'package:shatl_mod_loader/overlay/expanded/header.dart';
+import 'package:shatl_mod_loader/overlay/expanded/sider.dart';
+import 'package:shatl_mod_loader/overlay/expanded/sider_item.dart';
 import 'package:shatl_mod_loader/overlay/page/bag.dart';
 import 'package:shatl_mod_loader/overlay/page/player.dart';
 import 'package:shatl_mod_loader/overlay/page/world.dart';
 import 'package:shatl_mod_loader/overlay/window_manager.dart';
 
-class OpendOverlay extends StatefulWidget {
-  const OpendOverlay({super.key});
+class ExpandedOverlay extends StatefulWidget {
+  const ExpandedOverlay({super.key});
 
   @override
-  State<OpendOverlay> createState() => _OpendOverlayState();
+  State<ExpandedOverlay> createState() => _ExpandedOverlayState();
 }
 
-class _OpendOverlayState extends State<OpendOverlay> {
+class _ExpandedOverlayState extends State<ExpandedOverlay> {
   static const pages = [PlayerPage(), WorldPage(), PlayerBagPage()];
 
   int currPageIndex = 0;
@@ -32,7 +32,7 @@ class _OpendOverlayState extends State<OpendOverlay> {
       borderRadius: BorderRadius.circular(10),
       child: Row(
         children: [
-          OpendSider(
+          ExpandedSider(
             onChanged: (index) {
               setState(() {
                 currPageIndex = index;
@@ -48,7 +48,7 @@ class _OpendOverlayState extends State<OpendOverlay> {
           Expanded(
             child: Column(
               children: [
-                OpendHeader(
+                ExpandedHeader(
                   onBackTap: () async {
                     final windows = await WindowManager.getWindows();
 
@@ -70,8 +70,8 @@ class _OpendOverlayState extends State<OpendOverlay> {
     );
   }
 
-  OpendSiderItem _buildSiderItem(String asset) {
-    return OpendSiderItem(
+  ExpandedSiderItem _buildSiderItem(String asset) {
+    return ExpandedSiderItem(
       child: Image.asset(asset, width: 30, height: 30, color: Colors.green),
     );
   }

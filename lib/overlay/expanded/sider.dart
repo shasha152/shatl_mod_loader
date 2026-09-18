@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:shatl_mod_loader/overlay/opend/sider_item.dart';
+import 'package:shatl_mod_loader/overlay/expanded/sider_item.dart';
 
-class OpendSider extends StatefulWidget {
-  const OpendSider({super.key, required this.items, required this.onChanged});
+class ExpandedSider extends StatefulWidget {
+  const ExpandedSider({
+    super.key,
+    required this.items,
+    required this.onChanged,
+  });
 
-  final List<OpendSiderItem> items;
+  final List<ExpandedSiderItem> items;
   final void Function(int) onChanged;
 
   @override
-  State<OpendSider> createState() => _OpendSiderState();
+  State<ExpandedSider> createState() => _ExpandedSiderState();
 }
 
-class _OpendSiderState extends State<OpendSider> {
+class _ExpandedSiderState extends State<ExpandedSider> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
