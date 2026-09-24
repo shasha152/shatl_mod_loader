@@ -27,6 +27,7 @@ class WindowManager {
       y: y,
       autosize: false,
       draggable: draggable,
+      focusable: true,
       gravity: GravityType.CenterTop,
     ).to().create(start: true);
     mapWindows[id] = window;

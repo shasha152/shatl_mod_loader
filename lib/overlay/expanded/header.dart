@@ -26,7 +26,16 @@ class _ExpandedHeaderState extends State<ExpandedHeader> {
           onSelected: (value) {
             switch (value) {
               case 'about':
-                showAboutDialog(context: context);
+                showAboutDialog(
+                  context: context,
+                  applicationIcon: Image.asset(
+                    "images/icons/app_icon.png",
+                    width: 100,
+                    height: 100,
+                  ),
+                  applicationName: "Shatl Mod Loader",
+                  applicationVersion: "V1.0.0",
+                );
                 break;
             }
           },

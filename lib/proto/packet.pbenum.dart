@@ -28,6 +28,14 @@ class pk_cmd extends $pb.ProtobufEnum {
       pk_cmd._(1002, _omitEnumNames ? '' : 'cmd_player_bool_value');
   static const pk_cmd cmd_player_get_bag =
       pk_cmd._(1100, _omitEnumNames ? '' : 'cmd_player_get_bag');
+  static const pk_cmd cmd_get_item_name =
+      pk_cmd._(1101, _omitEnumNames ? '' : 'cmd_get_item_name');
+  static const pk_cmd cmd_set_item_type =
+      pk_cmd._(1102, _omitEnumNames ? '' : 'cmd_set_item_type');
+  static const pk_cmd cmd_set_item_pro =
+      pk_cmd._(1103, _omitEnumNames ? '' : 'cmd_set_item_pro');
+  static const pk_cmd cmd_grab_world_item =
+      pk_cmd._(1200, _omitEnumNames ? '' : 'cmd_grab_world_item');
 
   static const $core.List<pk_cmd> values = <pk_cmd>[
     none,
@@ -37,6 +45,10 @@ class pk_cmd extends $pb.ProtobufEnum {
     cmd_player_float_value,
     cmd_player_bool_value,
     cmd_player_get_bag,
+    cmd_get_item_name,
+    cmd_set_item_type,
+    cmd_set_item_pro,
+    cmd_grab_world_item,
   ];
 
   static final $core.Map<$core.int, pk_cmd> _byValue =

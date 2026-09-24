@@ -14,7 +14,7 @@ class CustomSlider extends StatefulWidget {
     super.key,
     required this.min,
     required this.max,
-    this.defaultValue = 0,
+    this.defaultValue,
     this.formatValue = formatInt,
     required this.title,
     required this.onChangeEnd,
@@ -23,7 +23,7 @@ class CustomSlider extends StatefulWidget {
 
   final double min;
   final double max;
-  final double defaultValue;
+  final double? defaultValue;
   final String title;
   final String? saveKey;
 
@@ -41,7 +41,8 @@ class _CustomSliderState extends State<CustomSlider> {
   void initState() {
     super.initState();
 
-    currValue = widget.min;
+    currValue = widget.defaultValue ?? widget.min;
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (widget.saveKey != null) {
         final prefs = await SharedPreferences.getInstance();
@@ -57,9 +58,10 @@ class _CustomSliderState extends State<CustomSlider> {
 
   @override
   Widget build(BuildContext context) {
+    if (currValue < widget.min) currValue = widget.min;
     return Row(
       children: [
-        Text(widget.title),
+        Text(widget.title, style: TextStyle(fontSize: 15)),
         const SizedBox(width: 10),
         Expanded(
           child: Slider(

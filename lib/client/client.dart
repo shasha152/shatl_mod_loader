@@ -286,7 +286,7 @@ class TcpManager {
     return null;
   }
 
-  static Future sendPacketT<T>(
+  static Future<T> sendPacketT<T>(
     packet packetMsg,
     T Function(List<int>) fromBuffer,
   ) async {

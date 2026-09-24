@@ -13,7 +13,7 @@ void _showOverlay(_IntegerSize size) {
   WindowManager.createWindow(
     route: "overlay.closed",
     id: "closed_window",
-    width: 600,
+    width: 450,
     height: 100,
     y: 70,
     draggable: false,
@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
         }
         return Center(
           child: ElevatedButton(
+            style: ElevatedButton.styleFrom(elevation: 0),
             onPressed: () {
               _showOverlay(size);
             },

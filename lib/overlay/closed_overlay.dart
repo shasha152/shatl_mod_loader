@@ -63,7 +63,7 @@ class _ClosedOverlayState extends State<ClosedOverlay> {
           windows["closed_window"]?.hide();
         }
       },
-      child: const Text("click"),
+      child: const Text("开始"),
     );
   }
 
