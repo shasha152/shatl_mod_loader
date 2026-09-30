@@ -117,14 +117,6 @@ App 使用 Android 悬浮窗功能。
 
 部分功能需要 SHATL Mod 提供对应的协议支持。
 
-## 📄 License
-
-本项目的许可证信息请查看：
-
-```text
-LICENSE
-```
-
 ## ⭐ Support
 
 如果这个项目对你有帮助，欢迎 Star ⭐
