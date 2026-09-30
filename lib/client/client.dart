@@ -242,6 +242,10 @@ class TcpManager {
           replyPort.send({'success': false, 'error': e.toString()});
         }
       }
+      if (type == "connected") {
+        final replyPort = message[1] as SendPort;
+        replyPort.send(client.connected);
+      }
     });
   }
 
@@ -253,9 +257,7 @@ class TcpManager {
     }
 
     final reply = ReceivePort();
-
     port.send(['send', data, reply.sendPort]);
-
     final result = await reply.first;
 
     reply.close();
@@ -265,6 +267,22 @@ class TcpManager {
     }
 
     return result as Uint8List;
+  }
+
+  static Future<bool> connected() async {
+    final port = IsolateNameServer.lookupPortByName(portName);
+
+    if (port == null) {
+      throw StateError('TcpManager not running');
+    }
+
+    final reply = ReceivePort();
+    port.send(["connected", reply]);
+    final result = await reply.first;
+
+    reply.close();
+
+    return result as bool;
   }
 
   static Future<packet> sendPacketAndParse(packet packMsg) async {

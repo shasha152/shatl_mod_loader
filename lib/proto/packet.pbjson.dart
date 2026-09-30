@@ -30,6 +30,7 @@ const pk_cmd$json = {
     {'1': 'cmd_set_item_type', '2': 1102},
     {'1': 'cmd_set_item_pro', '2': 1103},
     {'1': 'cmd_grab_world_item', '2': 1200},
+    {'1': 'cmd_auto_aim', '2': 1300},
   ],
 };
 
@@ -39,7 +40,7 @@ final $typed_data.Uint8List pk_cmdDescriptor = $convert.base64Decode(
     'NtZF9wbGF5ZXJfbWF4X3ZhbHVlEOgHEhsKFmNtZF9wbGF5ZXJfZmxvYXRfdmFsdWUQ6QcSGgoV'
     'Y21kX3BsYXllcl9ib29sX3ZhbHVlEOoHEhcKEmNtZF9wbGF5ZXJfZ2V0X2JhZxDMCBIWChFjbW'
     'RfZ2V0X2l0ZW1fbmFtZRDNCBIWChFjbWRfc2V0X2l0ZW1fdHlwZRDOCBIVChBjbWRfc2V0X2l0'
-    'ZW1fcHJvEM8IEhgKE2NtZF9ncmFiX3dvcmxkX2l0ZW0QsAk=');
+    'ZW1fcHJvEM8IEhgKE2NtZF9ncmFiX3dvcmxkX2l0ZW0QsAkSEQoMY21kX2F1dG9fYWltEJQK');
 
 @$core.Deprecated('Use packetDescriptor instead')
 const packet$json = {

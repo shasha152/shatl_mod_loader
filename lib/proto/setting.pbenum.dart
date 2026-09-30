@@ -17,13 +17,19 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class float_value_type extends $pb.ProtobufEnum {
   static const float_value_type speed =
       float_value_type._(0, _omitEnumNames ? '' : 'speed');
+  static const float_value_type control_fly =
+      float_value_type._(1, _omitEnumNames ? '' : 'control_fly');
+  static const float_value_type cursor_fly =
+      float_value_type._(2, _omitEnumNames ? '' : 'cursor_fly');
 
   static const $core.List<float_value_type> values = <float_value_type>[
     speed,
+    control_fly,
+    cursor_fly,
   ];
 
   static final $core.List<float_value_type?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 0);
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
   static float_value_type? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

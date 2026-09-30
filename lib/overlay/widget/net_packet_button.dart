@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shatl_mod_loader/client/client.dart';
 import 'package:shatl_mod_loader/proto/packet.pb.dart';
-import 'package:shatl_mod_loader/proto/packet.pbenum.dart';
 
 class NetPacketButton extends StatelessWidget {
   const NetPacketButton({

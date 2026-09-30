@@ -16,6 +16,7 @@ class _ClosedOverlayState extends State<ClosedOverlay> {
   SendPort? _port;
 
   late Future<Map<String, dynamic>> _connect;
+  final bool _isConnected = false;
 
   @override
   void initState() {

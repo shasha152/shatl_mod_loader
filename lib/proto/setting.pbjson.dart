@@ -20,12 +20,15 @@ const float_value_type$json = {
   '1': 'float_value_type',
   '2': [
     {'1': 'speed', '2': 0},
+    {'1': 'control_fly', '2': 1},
+    {'1': 'cursor_fly', '2': 2},
   ],
 };
 
 /// Descriptor for `float_value_type`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List float_value_typeDescriptor =
-    $convert.base64Decode('ChBmbG9hdF92YWx1ZV90eXBlEgkKBXNwZWVkEAA=');
+final $typed_data.Uint8List float_value_typeDescriptor = $convert.base64Decode(
+    'ChBmbG9hdF92YWx1ZV90eXBlEgkKBXNwZWVkEAASDwoLY29udHJvbF9mbHkQARIOCgpjdXJzb3'
+    'JfZmx5EAI=');
 
 @$core.Deprecated('Use bool_value_typeDescriptor instead')
 const bool_value_type$json = {

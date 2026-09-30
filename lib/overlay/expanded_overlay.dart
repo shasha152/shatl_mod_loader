@@ -4,6 +4,7 @@ import 'package:shatl_mod_loader/overlay/expanded/header.dart';
 import 'package:shatl_mod_loader/overlay/expanded/sider.dart';
 import 'package:shatl_mod_loader/overlay/expanded/sider_item.dart';
 import 'package:shatl_mod_loader/overlay/page/bag.dart';
+import 'package:shatl_mod_loader/overlay/page/multi_player.dart';
 import 'package:shatl_mod_loader/overlay/page/player.dart';
 import 'package:shatl_mod_loader/overlay/page/world.dart';
 import 'package:shatl_mod_loader/overlay/window_manager.dart';
@@ -16,7 +17,12 @@ class ExpandedOverlay extends StatefulWidget {
 }
 
 class _ExpandedOverlayState extends State<ExpandedOverlay> {
-  static const pages = [PlayerPage(), WorldPage(), PlayerBagPage()];
+  static const pages = [
+    PlayerPage(),
+    WorldPage(),
+    PlayerBagPage(),
+    MultiPlayerPage(),
+  ];
 
   int currPageIndex = 0;
   late Window? w;
@@ -42,6 +48,7 @@ class _ExpandedOverlayState extends State<ExpandedOverlay> {
               _buildSiderItem("images/icons/player.png"),
               _buildSiderItem("images/icons/world.png"),
               _buildSiderItem("images/icons/bag.png"),
+              _buildSiderItem("images/icons/multi_player.png"),
             ],
           ),
           VerticalDivider(width: 1),

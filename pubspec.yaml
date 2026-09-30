@@ -72,6 +72,7 @@ flutter:
     - images/author.jpg
     - images/icons/world.png
     - images/icons/player.png
+    - images/icons/multi_player.png
     - images/icons/bag.png
     - images/icons/app_icon.png
 

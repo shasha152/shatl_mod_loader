@@ -142,13 +142,6 @@ class BagItemButton extends StatelessWidget {
                       ),
                       CustomSlider(
                         min: 0,
-                        max: 100,
-                        title: "暴击率",
-                        defaultValue: itemMsg.crit.toDouble(),
-                        onChangeEnd: (value) => itemMsg.crit = value as int,
-                      ),
-                      CustomSlider(
-                        min: 0,
                         max: 40,
                         title: "大小",
                         defaultValue: itemMsg.scale,
@@ -170,14 +163,6 @@ class BagItemButton extends StatelessWidget {
                         defaultValue: itemMsg.shootSpeed,
                         onChangeEnd: (value) => itemMsg.shootSpeed = value,
                         formatValue: formatDouble,
-                      ),
-
-                      CustomSlider(
-                        min: 0,
-                        max: 9999,
-                        title: "防御",
-                        defaultValue: itemMsg.defense.toDouble(),
-                        onChangeEnd: (value) => itemMsg.defense = value as int,
                       ),
                       CustomSlider(
                         min: 1,

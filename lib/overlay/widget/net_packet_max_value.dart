@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shatl_mod_loader/client/client.dart';
 import 'package:shatl_mod_loader/overlay/widget/custom_slider.dart';
-import 'package:shatl_mod_loader/overlay/widget/title_switch_expand.dart';
+import 'package:shatl_mod_loader/widget/title_switch_expand.dart';
 import 'package:shatl_mod_loader/proto/packet.pb.dart';
 import 'package:shatl_mod_loader/proto/player.pb.dart';
 

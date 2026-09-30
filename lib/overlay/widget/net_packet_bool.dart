@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shatl_mod_loader/client/client.dart';
-import 'package:shatl_mod_loader/overlay/widget/title_switch.dart';
+import 'package:shatl_mod_loader/widget/title_switch.dart';
 import 'package:shatl_mod_loader/proto/packet.pb.dart';
 import 'package:shatl_mod_loader/proto/setting.pb.dart';
 
